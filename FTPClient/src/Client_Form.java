@@ -27,16 +27,16 @@ public class Client_Form extends JFrame {
         String port = textField1.getText();
         String host = textField3.getText();
         String[] argument =new String[] {host,port,username,pass};
-        String msg = "";
+        String[] msg = new String[0];
         ClientFTP obj= new ClientFTP();
         try {
             msg = obj.connect(argument);
         } catch (Exception ex) {
-            msg="Failure";
+            msg[0]="Failure";
             Logger.getLogger(Client_Form.class.getName()).log(Level.SEVERE, null, ex);
         }
-        if (msg.compareTo("Success")==0){
-            String [] args = {host,port,username};
+        if (msg[0].compareTo("Success")==0){
+            String [] args = {host,port,username,msg[1]};
             try {
                 MainFrame obj_m= new MainFrame();
                 MainFrame.main(args);

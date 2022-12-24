@@ -12,11 +12,10 @@ public class ClientFTP {
     public static int PortNo,dataPort;
 
     public static String Host;
-    public String connect(String args[]) throws Exception{
+    public String[] connect(String args[]) throws Exception{
         String userName="";
         String password="";
         String msg="Fail";
-
         if(args.length ==4){
             Host = args[0];
             PortNo = Integer.parseInt(args[1]);
@@ -37,7 +36,10 @@ public class ClientFTP {
         dout.writeUTF(userName);
         dout.writeUTF(password);
 
-        return din.readUTF();
+        String check= din.readUTF();
+        String role= din.readUTF();
+        String[] login={check,role};
+        return login;
     }
     public String getPWD() throws Exception{
 
