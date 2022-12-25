@@ -32,9 +32,10 @@ public class Client_Form extends JFrame {
         try {
             msg = obj.connect(argument);
         } catch (Exception ex) {
-            msg[0]="Failure";
+            msg[0]="Fail";
             Logger.getLogger(Client_Form.class.getName()).log(Level.SEVERE, null, ex);
         }
+        int err=0;
         if (msg[0].compareTo("Success")==0){
             String [] args = {host,port,username,msg[1]};
             try {
@@ -44,6 +45,10 @@ public class Client_Form extends JFrame {
             } catch (Exception ex) {
                 Logger.getLogger(Client_Form.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }
+        else{
+            err++;
+            JOptionPane.showMessageDialog(this,"Username or Password is incorrect","Error",JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -56,53 +61,78 @@ public class Client_Form extends JFrame {
         textField2 = new JTextField();
         button1 = new JButton();
         passwordField1 = new JPasswordField();
-        label4 = new JLabel();
         textField3 = new JTextField();
         label5 = new JLabel();
+        label7 = new JLabel();
+        label8 = new JLabel();
+        label9 = new JLabel();
+        label10 = new JLabel();
+        label11 = new JLabel();
 
         //======== this ========
+        setTitle("Login");
         Container contentPane = getContentPane();
         contentPane.setLayout(null);
 
         //---- label1 ----
         label1.setText("Enter Port");
         contentPane.add(label1);
-        label1.setBounds(new Rectangle(new Point(10, 75), label1.getPreferredSize()));
+        label1.setBounds(new Rectangle(new Point(20, 200), label1.getPreferredSize()));
         contentPane.add(textField1);
-        textField1.setBounds(95, 65, 165, 30);
+        textField1.setBounds(95, 190, 235, 30);
 
         //---- label2 ----
         label2.setText("UserName");
         contentPane.add(label2);
-        label2.setBounds(new Rectangle(new Point(10, 120), label2.getPreferredSize()));
+        label2.setBounds(new Rectangle(new Point(20, 235), label2.getPreferredSize()));
 
         //---- label3 ----
         label3.setText("Password");
         contentPane.add(label3);
-        label3.setBounds(10, 160, 65, 16);
+        label3.setBounds(20, 265, 65, 16);
         contentPane.add(textField2);
-        textField2.setBounds(95, 110, 165, 30);
+        textField2.setBounds(95, 225, 235, 30);
 
         //---- button1 ----
         button1.setText("Connect");
         button1.addActionListener(e -> button1(e));
         contentPane.add(button1);
-        button1.setBounds(new Rectangle(new Point(105, 195), button1.getPreferredSize()));
+        button1.setBounds(new Rectangle(new Point(160, 300), button1.getPreferredSize()));
         contentPane.add(passwordField1);
-        passwordField1.setBounds(95, 150, 165, 30);
-
-        //---- label4 ----
-        label4.setIcon(new ImageIcon(getClass().getResource("/FTPImage.jpeg")));
-        label4.setHorizontalAlignment(SwingConstants.LEFT);
-        contentPane.add(label4);
-        label4.setBounds(170, 200, 140, 120);
+        passwordField1.setBounds(95, 260, 235, 30);
         contentPane.add(textField3);
-        textField3.setBounds(95, 15, 165, 30);
+        textField3.setBounds(95, 155, 235, 30);
 
         //---- label5 ----
         label5.setText("Enter Host");
         contentPane.add(label5);
-        label5.setBounds(10, 25, 70, 16);
+        label5.setBounds(20, 165, 70, 16);
+
+        //---- label7 ----
+        label7.setText("Copyright (c) 2022 by Team88");
+        contentPane.add(label7);
+        label7.setBounds(100, 340, 180, 30);
+
+        //---- label8 ----
+        label8.setText("Hi,");
+        contentPane.add(label8);
+        label8.setBounds(new Rectangle(new Point(15, 15), label8.getPreferredSize()));
+
+        //---- label9 ----
+        label9.setText("This is an FTP service, but it is simplified and more user-friendly.");
+        contentPane.add(label9);
+        label9.setBounds(new Rectangle(new Point(15, 35), label9.getPreferredSize()));
+
+        //---- label10 ----
+        label10.setText("LOGIN");
+        label10.setFont(label10.getFont().deriveFont(label10.getFont().getStyle() | Font.BOLD, label10.getFont().getSize() + 4f));
+        contentPane.add(label10);
+        label10.setBounds(new Rectangle(new Point(175, 110), label10.getPreferredSize()));
+
+        //---- label11 ----
+        label11.setText("Thank you for using our app.Wish you a good day \u2665");
+        contentPane.add(label11);
+        label11.setBounds(new Rectangle(new Point(15, 60), label11.getPreferredSize()));
 
         {
             // compute preferred size
@@ -132,9 +162,13 @@ public class Client_Form extends JFrame {
     private JTextField textField2;
     private JButton button1;
     private JPasswordField passwordField1;
-    private JLabel label4;
     private JTextField textField3;
     private JLabel label5;
+    private JLabel label7;
+    private JLabel label8;
+    private JLabel label9;
+    private JLabel label10;
+    private JLabel label11;
     // JFormDesigner - End of variables declaration  //GEN-END:variables  @formatter:on
 
     public static void main(String[] args){

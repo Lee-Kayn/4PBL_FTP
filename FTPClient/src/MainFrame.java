@@ -170,9 +170,7 @@ public class MainFrame extends JFrame {
         queryThread.start();
     }
 
-    private void button4() {
-        // TODO add your code here
-    }
+
 
 
 
@@ -185,13 +183,6 @@ public class MainFrame extends JFrame {
         button2 = new JButton();
         progressBar1 = new JProgressBar();
         label5 = new JLabel();
-        button3 = new JButton();
-        button4 = new JButton();
-        button5 = new JButton();
-        button6 = new JButton();
-        button7 = new JButton();
-        button8 = new JButton();
-        button9 = new JButton();
         label4 = new JLabel();
         label6 = new JLabel();
         label7 = new JLabel();
@@ -201,6 +192,13 @@ public class MainFrame extends JFrame {
         label10 = new JLabel();
         label11 = new JLabel();
         label12 = new JLabel();
+        button3 = new JButton();
+        button4 = new JButton();
+        button5 = new JButton();
+        button6 = new JButton();
+        button7 = new JButton();
+        button8 = new JButton();
+        button9 = new JButton();
         fileChooser1 = new JFileChooser();
         fileChooser2 = new JFileChooser();
 
@@ -245,61 +243,7 @@ public class MainFrame extends JFrame {
         //---- label5 ----
         label5.setIcon(new ImageIcon(getClass().getResource("/FTPImage.jpeg")));
         contentPane.add(label5);
-        label5.setBounds(430, 355, 135, 130);
-
-        //---- button3 ----
-        button3.setText("Show all files in current working directiry");
-        button3.addActionListener(e -> button3(e));
-        contentPane.add(button3);
-        button3.setBounds(155, 255, 255, button3.getPreferredSize().height);
-
-        //---- button4 ----
-        button4.setText("Send a file to Server");
-        button4.addActionListener(e -> {
-			button4();
-		});
-        contentPane.add(button4);
-        button4.setBounds(155, 290, 255, 30);
-
-        //---- button5 ----
-        button5.setText("Receives a file");
-        button5.addActionListener(e -> {
-			button5(e);
-		});
-        contentPane.add(button5);
-        button5.setBounds(155, 325, 255, 30);
-
-        //---- button6 ----
-        button6.setText("Create a new directory");
-        button6.addActionListener(e -> {
-			button6(e);
-		});
-        contentPane.add(button6);
-        button6.setBounds(155, 360, 255, 30);
-
-        //---- button7 ----
-        button7.setText("Change working directory");
-        button7.addActionListener(e -> {
-			button7(e);
-		});
-        contentPane.add(button7);
-        button7.setBounds(155, 395, 255, 30);
-
-        //---- button8 ----
-        button8.setText("Delete a directory");
-        button8.addActionListener(e -> {
-			button8(e);
-		});
-        contentPane.add(button8);
-        button8.setBounds(155, 430, 255, 30);
-
-        //---- button9 ----
-        button9.setText("Delete a file");
-        button9.addActionListener(e -> {
-			button9(e);
-		});
-        contentPane.add(button9);
-        button9.setBounds(155, 465, 255, 30);
+        label5.setBounds(445, 355, 135, 130);
 
         //---- label4 ----
         label4.setText("Copyright (c) 2022 by Team88");
@@ -348,6 +292,48 @@ public class MainFrame extends JFrame {
         contentPane.add(label12);
         label12.setBounds(new Rectangle(new Point(360, 230), label12.getPreferredSize()));
 
+        //---- button3 ----
+        button3.setText("Show all files in curent working directory");
+        button3.addActionListener(e -> button3(e));
+        contentPane.add(button3);
+        button3.setBounds(180, 255, 255, button3.getPreferredSize().height);
+
+        //---- button4 ----
+        button4.setText("Send a file to Server");
+        button4.addActionListener(e -> button4(e));
+        contentPane.add(button4);
+        button4.setBounds(180, 290, 255, button4.getPreferredSize().height);
+
+        //---- button5 ----
+        button5.setText("Receive a file");
+        button5.addActionListener(e -> button5(e));
+        contentPane.add(button5);
+        button5.setBounds(180, 325, 255, button5.getPreferredSize().height);
+
+        //---- button6 ----
+        button6.setText("Create a directory");
+        button6.addActionListener(e -> button6(e));
+        contentPane.add(button6);
+        button6.setBounds(180, 360, 255, button6.getPreferredSize().height);
+
+        //---- button7 ----
+        button7.setText("Chang current working directory");
+        button7.addActionListener(e -> button7(e));
+        contentPane.add(button7);
+        button7.setBounds(180, 395, 255, button7.getPreferredSize().height);
+
+        //---- button8 ----
+        button8.setText("Deleted a directory");
+        button8.addActionListener(e -> button8(e));
+        contentPane.add(button8);
+        button8.setBounds(180, 430, 255, button8.getPreferredSize().height);
+
+        //---- button9 ----
+        button9.setText("Delete a file");
+        button9.addActionListener(e -> button9(e));
+        contentPane.add(button9);
+        button9.setBounds(180, 465, 255, button9.getPreferredSize().height);
+
         {
             // compute preferred size
             Dimension preferredSize = new Dimension();
@@ -379,13 +365,6 @@ public class MainFrame extends JFrame {
     private JButton button2;
     private JProgressBar progressBar1;
     private JLabel label5;
-    private JButton button3;
-    private JButton button4;
-    private JButton button5;
-    private JButton button6;
-    private JButton button7;
-    private JButton button8;
-    private JButton button9;
     private JLabel label4;
     private JLabel label6;
     private JLabel label7;
@@ -395,6 +374,13 @@ public class MainFrame extends JFrame {
     private JLabel label10;
     private JLabel label11;
     private JLabel label12;
+    private JButton button3;
+    private JButton button4;
+    private JButton button5;
+    private JButton button6;
+    private JButton button7;
+    private JButton button8;
+    private JButton button9;
     private JFileChooser fileChooser1;
     private JFileChooser fileChooser2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables  @formatter:on
@@ -493,12 +479,12 @@ public class MainFrame extends JFrame {
                     return;
                 }
 
-                System.out.println("Sending File ...");
                 FileInputStream fin=new FileInputStream(file);
                 double filelength=file.length();
                 double updatelength=filelength/1000;
 
                 int ch,count=0;
+
                 do
                 {
                     if(count >= updatelength){
@@ -519,11 +505,6 @@ public class MainFrame extends JFrame {
                 progressBar1.setValue(100);
                 //return true;
                 JOptionPane.showMessageDialog(this,"Send a file to Server successfully","Successfully",JOptionPane.INFORMATION_MESSAGE);
-            }
-
-
-            else {
-                System.out.println("File access cancelled by user.");
             }
 
         }
@@ -562,13 +543,10 @@ public class MainFrame extends JFrame {
             else if(msgFromServer.compareTo("READY")==0)
             {
                 int check=0;
-                System.out.println("Receiving File ...");
                 File f=new File(fileName);
                 if(f.exists())
                 {
                     String Option;
-                    System.out.println("File Already Exists. Want to OverWrite (Y/N) ?");
-                    //Option=br.readLine();
                     MainFrame obj_main=new MainFrame();
                     Option=obj_main.getChoice();
                     if(Option=="N")
@@ -610,7 +588,7 @@ public class MainFrame extends JFrame {
                 fout.close();
                 System.out.println(ClientFTP.din.readUTF());
                 progressBar1.setValue(100);
-
+                JOptionPane.showMessageDialog(this,"Receive a file from Server successfully","Successfully",JOptionPane.INFORMATION_MESSAGE);
             }
         }
         else if(Comand.compareTo("list")==0){
@@ -629,9 +607,7 @@ public class MainFrame extends JFrame {
             String status="false";
             String selection = (String) JOptionPane.showInputDialog(this, "Enter a Path:", "Input", JOptionPane.QUESTION_MESSAGE,
                     null, null,null);
-            String isNull=selection;
-            System.out.println(isNull);
-            if (isNull.compareTo("null")==0){
+            if (selection==null){
                 System.out.println("Cek");
                 JOptionPane.showMessageDialog(this,"You didn't enter any path" , "Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -646,6 +622,7 @@ public class MainFrame extends JFrame {
                 } catch (Exception ex) {
                     Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                JOptionPane.showMessageDialog(this,"Change current working directory successfully","Successfully",JOptionPane.INFORMATION_MESSAGE);
             }
         }
         else if (Comand.compareTo("delete")==0){
@@ -661,9 +638,11 @@ public class MainFrame extends JFrame {
 
             String selection = (String) JOptionPane.showInputDialog(this, "Choose a File to delete", "Input", JOptionPane.QUESTION_MESSAGE,
                     null, inputlist, "Titan");
-            System.out.println(selection);
+//            System.out.println(selection);
             try {
                 obj_client.deleteFile(selection);
+                JOptionPane.showMessageDialog(this,"Delete a file successfully","Successfully",JOptionPane.INFORMATION_MESSAGE);
+
             } catch (IOException ex) {
                 Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -682,6 +661,9 @@ public class MainFrame extends JFrame {
                     status=obj_client.setNewDir(selection);
                     if (status.compareTo("false")==0){
                         JOptionPane.showMessageDialog(this,"Directory not created" , "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(this,"Directory created","Successfully",JOptionPane.INFORMATION_MESSAGE);
                     }
                 } catch (Exception ex) {
                     Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
@@ -707,6 +689,8 @@ public class MainFrame extends JFrame {
                 status=obj_client.deleteFolder(selection);
                 if (status.compareTo("false")==0){
                     JOptionPane.showMessageDialog(this,"Directory contains Files!!!!" , "Error", JOptionPane.ERROR_MESSAGE);
+                }else {
+                    JOptionPane.showMessageDialog(this,"Remove Directory successfully","Successfully",JOptionPane.INFORMATION_MESSAGE);
                 }
             } catch (IOException ex) {
                 Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
