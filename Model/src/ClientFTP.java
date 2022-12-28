@@ -69,6 +69,10 @@ public class ClientFTP {
         return fileList;
     }
 
+    public void Dis(){
+
+    }
+
     public ArrayList<String> getList() throws IOException{
 
         ArrayList<String> fileList = new ArrayList<String>();
@@ -79,7 +83,26 @@ public class ClientFTP {
         System.out.println("Testin list");
         int length=Integer.parseInt(din.readUTF());
         for (int i=0; i < length; i++){
-            fileList.add(din.readUTF());
+            String check =din.readUTF();
+            if(check.compareTo("1")==0)
+            {
+                String nameFile =din.readUTF();
+                String lengthFile =din.readUTF();
+                String kb="byte";
+                int Length = Integer.parseInt(lengthFile);
+                if(Length>1024)
+                {
+                    Length /=1024;
+                    kb="kb";
+                }
+                String format=String.format("%-50s%s","File: "+nameFile,"Size: "+Length+kb);
+                System.out.println(format);
+                fileList.add(format);
+            }
+            else{
+                fileList.add(din.readUTF());
+            }
+
         }
 
         return fileList;
@@ -87,12 +110,12 @@ public class ClientFTP {
 
     public void disconnect() throws IOException{
 
-        dout.writeUTF("Disconnect");
+        dout.writeUTF("DISCONNECT");
         datasoc=new Socket(Host,dataPort);
         datadin=new DataInputStream(datasoc.getInputStream());
         dataout=new DataOutputStream(datasoc.getOutputStream());
         dout.flush();
-        //soc.close();
+        soc.close();
 
     }
     public void deleteFile(String filename) throws IOException{

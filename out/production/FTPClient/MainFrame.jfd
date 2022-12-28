@@ -60,90 +60,10 @@ new FormModel {
 				name: "label5"
 				"icon": new com.jformdesigner.model.SwingIcon( 0, "/FTPImage.jpeg" )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 430
+				"x": 445
 				"y": 355
 				"width": 135
 				"height": 130
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button3"
-				"text": "Show all files in current working directiry"
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3", true ) )
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 155
-				"y": 255
-				"width": 255
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button4"
-				"text": "Send a file to Server"
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3", true ) )
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button4", true ) )
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button4", true ) )
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button4", true ) )
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button4", false ) )
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button4", false ) )
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"width": 255
-				"height": 30
-				"x": 155
-				"y": 290
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button5"
-				"text": "Receives a file"
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3", true ) )
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button5", true ) )
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"width": 255
-				"height": 30
-				"x": 155
-				"y": 325
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button6"
-				"text": "Create a new directory"
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3", true ) )
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button6", true ) )
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"width": 255
-				"height": 30
-				"x": 155
-				"y": 360
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button7"
-				"text": "Change working directory"
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3", true ) )
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button7", true ) )
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button7", true ) )
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"width": 255
-				"height": 30
-				"x": 155
-				"y": 395
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button8"
-				"text": "Delete a directory"
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3", true ) )
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button8", true ) )
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"width": 255
-				"height": 30
-				"x": 155
-				"y": 430
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button9"
-				"text": "Delete a file"
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3", true ) )
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button9", true ) )
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"width": 255
-				"height": 30
-				"x": 155
-				"y": 465
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label4"
@@ -222,8 +142,71 @@ new FormModel {
 				"x": 360
 				"y": 230
 			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button3"
+				"text": "Show all files in curent working directory"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 180
+				"y": 255
+				"width": 255
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button4"
+				"text": "Send a file to Server"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button4", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 180
+				"y": 290
+				"width": 255
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button5"
+				"text": "Receive a file"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button5", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 180
+				"y": 325
+				"width": 255
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button6"
+				"text": "Create a directory"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button6", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 180
+				"y": 360
+				"width": 255
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button7"
+				"text": "Chang current working directory"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button7", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 180
+				"y": 395
+				"width": 255
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button8"
+				"text": "Deleted a directory"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button8", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 180
+				"y": 430
+				"width": 255
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button9"
+				"text": "Delete a file"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button9", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 180
+				"y": 465
+				"width": 255
+			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 15, 0 )
+			"location": new java.awt.Point( 20, 0 )
 			"size": new java.awt.Dimension( 570, 555 )
 		} )
 		add( new FormComponent( "javax.swing.JFileChooser" ) {

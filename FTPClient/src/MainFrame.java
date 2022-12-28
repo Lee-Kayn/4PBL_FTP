@@ -607,8 +607,10 @@ public class MainFrame extends JFrame {
             String status="false";
             String selection = (String) JOptionPane.showInputDialog(this, "Enter a Path:", "Input", JOptionPane.QUESTION_MESSAGE,
                     null, null,null);
-            if (selection==null){
-                System.out.println("Cek");
+            if(selection==null){
+
+            }
+            else if (selection.isEmpty()){
                 JOptionPane.showMessageDialog(this,"You didn't enter any path" , "Error", JOptionPane.ERROR_MESSAGE);
             }
             else{
@@ -649,10 +651,11 @@ public class MainFrame extends JFrame {
         }
         else if (Comand.compareTo("mkdir")==0){
             String status="false";
-            String selection = (String) JOptionPane.showInputDialog(this, "Enter a Directory name:", "Input", JOptionPane.QUESTION_MESSAGE,
-                    null, null,null);
-            System.out.println(selection);
-            if (selection.isEmpty()){
+            String selection =JOptionPane.showInputDialog(this, "Enter a Directory name:", "Input", JOptionPane.PLAIN_MESSAGE);
+            if(selection==null){
+
+            }
+            else if (selection.isEmpty()){
                 JOptionPane.showMessageDialog(this,"You didn't enter any input" , "Error", JOptionPane.ERROR_MESSAGE);
             }
             else{
@@ -666,6 +669,7 @@ public class MainFrame extends JFrame {
                         JOptionPane.showMessageDialog(this,"Directory created","Successfully",JOptionPane.INFORMATION_MESSAGE);
                     }
                 } catch (Exception ex) {
+                    System.out.println("CEK");
                     Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
@@ -684,16 +688,20 @@ public class MainFrame extends JFrame {
 
             String selection = (String) JOptionPane.showInputDialog(this, "Choose a Folder to delete", "Input", JOptionPane.QUESTION_MESSAGE,
                     null, inputlist, "Titan");
-            System.out.println(selection);
-            try {
-                status=obj_client.deleteFolder(selection);
-                if (status.compareTo("false")==0){
-                    JOptionPane.showMessageDialog(this,"Directory contains Files!!!!" , "Error", JOptionPane.ERROR_MESSAGE);
-                }else {
-                    JOptionPane.showMessageDialog(this,"Remove Directory successfully","Successfully",JOptionPane.INFORMATION_MESSAGE);
+            if(selection == null) {
+
+            }
+            else {
+                try {
+                    status=obj_client.deleteFolder(selection);
+                    if (status.compareTo("false")==0){
+                        JOptionPane.showMessageDialog(this,"Directory contains Files!!!!" , "Error", JOptionPane.ERROR_MESSAGE);
+                    }else {
+                        JOptionPane.showMessageDialog(this,"Remove Directory successfully","Successfully",JOptionPane.INFORMATION_MESSAGE);
+                    }
+                } catch (IOException ex) {
+                    Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } catch (IOException ex) {
-                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         else{

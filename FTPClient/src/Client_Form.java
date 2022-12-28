@@ -40,7 +40,7 @@ public class Client_Form extends JFrame {
             String [] args = {host,port,username,msg[1]};
             try {
                 MainFrame obj_m= new MainFrame();
-                MainFrame.main(args);
+                obj_m.main(args);
                 this.setVisible(false);
             } catch (Exception ex) {
                 Logger.getLogger(Client_Form.class.getName()).log(Level.SEVERE, null, ex);
