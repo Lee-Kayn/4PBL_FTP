@@ -1,3 +1,5 @@
+import org.omg.CORBA.Object;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.event.WindowAdapter;
@@ -146,7 +148,7 @@ public class MainFrame extends JFrame {
         Thread queryThread = new Thread() {
             public void run() {
                 try {
-                    executeCommands("rmdir","button8");
+                    executeCommands("rmdirAll","button8");
                 } catch (IOException ex) {
                     Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -613,7 +615,7 @@ public class MainFrame extends JFrame {
             else if (selection.isEmpty()){
                 JOptionPane.showMessageDialog(this,"You didn't enter any path" , "Error", JOptionPane.ERROR_MESSAGE);
             }
-            else{
+            else {
 
                 try {
                     status= obj_client.setCD(selection);
@@ -621,10 +623,13 @@ public class MainFrame extends JFrame {
                     if (status.compareTo("false")==0){
                         JOptionPane.showMessageDialog(this,"Directory not Exist" , "Error", JOptionPane.ERROR_MESSAGE);
                     }
+                    else {
+                        JOptionPane.showMessageDialog(this,"Change current working directory successfully","Successfully",JOptionPane.INFORMATION_MESSAGE);
+
+                    }
                 } catch (Exception ex) {
                     Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                JOptionPane.showMessageDialog(this,"Change current working directory successfully","Successfully",JOptionPane.INFORMATION_MESSAGE);
             }
         }
         else if (Comand.compareTo("delete")==0){
@@ -641,12 +646,16 @@ public class MainFrame extends JFrame {
             String selection = (String) JOptionPane.showInputDialog(this, "Choose a File to delete", "Input", JOptionPane.QUESTION_MESSAGE,
                     null, inputlist, "Titan");
 //            System.out.println(selection);
-            try {
-                obj_client.deleteFile(selection);
-                JOptionPane.showMessageDialog(this,"Delete a file successfully","Successfully",JOptionPane.INFORMATION_MESSAGE);
+            if(selection==null){
 
-            } catch (IOException ex) {
-                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            } else {
+                try {
+                    obj_client.deleteFile(selection);
+                    JOptionPane.showMessageDialog(this,"Delete a file successfully","Successfully",JOptionPane.INFORMATION_MESSAGE);
+
+                } catch (IOException ex) {
+                    Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
         else if (Comand.compareTo("mkdir")==0){
@@ -669,12 +678,11 @@ public class MainFrame extends JFrame {
                         JOptionPane.showMessageDialog(this,"Directory created","Successfully",JOptionPane.INFORMATION_MESSAGE);
                     }
                 } catch (Exception ex) {
-                    System.out.println("CEK");
                     Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
-        else if (Comand.compareTo("rmdir")==0){
+        else if (Comand.compareTo("rmdirall")==0){
             String status="false";
             ArrayList<String> fileList= new ArrayList<String>();
             try {
@@ -692,15 +700,23 @@ public class MainFrame extends JFrame {
 
             }
             else {
-                try {
-                    status=obj_client.deleteFolder(selection);
-                    if (status.compareTo("false")==0){
-                        JOptionPane.showMessageDialog(this,"Directory contains Files!!!!" , "Error", JOptionPane.ERROR_MESSAGE);
-                    }else {
-                        JOptionPane.showMessageDialog(this,"Remove Directory successfully","Successfully",JOptionPane.INFORMATION_MESSAGE);
+                status=obj_client.deleteAllinFolder(selection,"NO");
+                int countFile= obj_client.returnFile();
+                int countFolder = obj_client.returnDir();
+                int reply=JOptionPane.showConfirmDialog(this,"This Folder have "+countFile+" files and "+countFolder+" folders\n Do you want continue","Continue",JOptionPane.YES_NO_OPTION);
+                if(reply==JOptionPane.NO_OPTION){
+
+                } else {
+                    try {
+                        status=obj_client.deleteAllinFolder(selection,"YES");
+                        if (status.compareTo("false")==0){
+                            JOptionPane.showMessageDialog(this,"Directory contains Files!!!!" , "Error", JOptionPane.ERROR_MESSAGE);
+                        }else {
+                            JOptionPane.showMessageDialog(this,"Remove Directory successfully","Successfully",JOptionPane.INFORMATION_MESSAGE);
+                        }
+                    } catch (IOException ex) {
+                        Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                } catch (IOException ex) {
-                    Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }

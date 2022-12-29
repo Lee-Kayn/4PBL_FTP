@@ -88,6 +88,7 @@ public class ClientFTP {
             {
                 String nameFile =din.readUTF();
                 String lengthFile =din.readUTF();
+                int lenName = nameFile.length();
                 String kb="byte";
                 int Length = Integer.parseInt(lengthFile);
                 if(Length>1024)
@@ -95,12 +96,13 @@ public class ClientFTP {
                     Length /=1024;
                     kb="kb";
                 }
-                String format=String.format("%-50s%s","File: "+nameFile,"Size: "+Length+kb);
+                String format=String.format("%"+(lenName-80)+"s%s","--File: "+nameFile,"Size: "+Length+kb);
                 System.out.println(format);
                 fileList.add(format);
             }
             else{
-                fileList.add(din.readUTF());
+                String format=String.format("%-70s",din.readUTF());
+                fileList.add(format);
             }
 
         }
@@ -172,5 +174,30 @@ public class ClientFTP {
         dout.writeUTF(dirName);
         String status=din.readUTF();
         return status;
+    }
+
+    int countDir=0;
+    int countFile=0;
+    public String deleteAllinFolder(String dirName,String check) throws IOException{
+
+        dout.writeUTF("rmdirAll");
+        datasoc=new Socket(Host,dataPort);
+        datadin=new DataInputStream(datasoc.getInputStream());
+        dataout=new DataOutputStream(datasoc.getOutputStream());
+        dout.writeUTF(dirName);
+        countDir= Integer.parseInt(din.readUTF());
+        returnDir();
+        countFile= Integer.parseInt(din.readUTF());
+        returnFile();
+        dout.writeUTF(check);
+        String status=din.readUTF();
+        return status;
+    }
+
+    public int returnDir() {
+        return countDir;
+    }
+    public int returnFile() {
+        return countFile;
     }
 }

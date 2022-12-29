@@ -27,13 +27,13 @@ public class Client_Form extends JFrame {
         String port = textField1.getText();
         String host = textField3.getText();
         String[] argument =new String[] {host,port,username,pass};
-        String[] msg = new String[0];
+        String[] msg = new String[10];
+        msg[0]="check";
         ClientFTP obj= new ClientFTP();
         try {
             msg = obj.connect(argument);
         } catch (Exception ex) {
-            msg[0]="Fail";
-            Logger.getLogger(Client_Form.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this,"Host or Port is incorrect","Error",JOptionPane.ERROR_MESSAGE);
         }
         int err=0;
         if (msg[0].compareTo("Success")==0){
@@ -46,7 +46,7 @@ public class Client_Form extends JFrame {
                 Logger.getLogger(Client_Form.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        else{
+        else if(msg[0].compareTo("Fail")==0){
             err++;
             JOptionPane.showMessageDialog(this,"Username or Password is incorrect","Error",JOptionPane.ERROR_MESSAGE);
         }
